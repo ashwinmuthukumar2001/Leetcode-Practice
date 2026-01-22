@@ -42,6 +42,15 @@ class LinkedList:
             self.insertAtBegining(data)
             return
         
+        if index < 0:
+            print('invalid index')
+            return
+        
+        #Handle edge case where index is >= 1 and list is empty
+        if not self.head:
+            print('index exceeds length of the list')
+            return
+        
         current = self.head
         for i in range(index-1):
             if current:
@@ -52,6 +61,34 @@ class LinkedList:
 
         new_node.next = current.next
         current.next = new_node
+
+    # find the middle node in list two pass method
+    def findMid(self):
+        current = self.head
+        if not current:
+            print("Empty List")
+            return
+        index = 0
+        while current:
+            current = current.next
+            index+=1
+        current = self.head
+        for i in range(int(index/2)):
+            current = current.next
+        print(current.data)
+
+    # find the mid node in list using two pass method
+    def findMid_(self):
+
+        if not self.head:
+            print("list empty")
+            return
+        slow = fast = self.head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        print("mid using two pass method ",slow.data)
         
         
  
@@ -63,7 +100,10 @@ L.append(30)
 L.insertAtBegining(5)
 L.insertAtIndex(15,2)
 L.insertAtIndex(40,5)
+L.display()
 
 L.insertAtIndex(100,10)
 
-L.display()
+L.findMid()
+L.findMid_()
+
