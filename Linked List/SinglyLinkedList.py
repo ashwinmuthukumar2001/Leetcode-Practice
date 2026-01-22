@@ -77,7 +77,7 @@ class LinkedList:
             current = current.next
         print(current.data)
 
-    # find the mid node in list using two pass method
+    # find the mid node in list using single pass method
     def findMid_(self):
 
         if not self.head:
@@ -88,7 +88,7 @@ class LinkedList:
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        print("mid using two pass method ",slow.data)
+        print("mid using single pass method ",slow.data)
         
         
  
