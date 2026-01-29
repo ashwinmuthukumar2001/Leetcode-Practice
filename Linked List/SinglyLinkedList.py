@@ -89,6 +89,17 @@ class LinkedList:
             slow = slow.next
             fast = fast.next.next
         print("mid using single pass method ",slow.data)
+
+    def convert_to_list(self):
+        temp_list = []
+
+        curr = self.head
+
+        while curr:
+            temp_list.append(curr.data)
+            curr = curr.next
+        
+        return temp_list
         
         
  
@@ -106,4 +117,6 @@ L.insertAtIndex(100,10)
 
 L.findMid()
 L.findMid_()
+
+print(L.convert_to_list())
 
