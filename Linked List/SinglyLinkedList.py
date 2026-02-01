@@ -100,23 +100,42 @@ class LinkedList:
             curr = curr.next
         
         return temp_list
-        
-        
- 
+    
+    # Reverse a linked list using recursion
+
+    def reverse_(self):
+        self.head = self._reverse_recursive(self.head)
+
+    def _reverse_recursive(self,head):
+        if head is None or head.next is None:
+            return head
+
+        new_head = self._reverse_recursive(head.next)
+
+        head.next.next = head
+        head.next = None
+
+        return new_head
+
+
 
 L = LinkedList()
 L.append(10)
 L.append(20)
 L.append(30)
-L.insertAtBegining(5)
-L.insertAtIndex(15,2)
-L.insertAtIndex(40,5)
-L.display()
+# L.insertAtBegining(5)
+# L.insertAtIndex(15,2)
+# L.insertAtIndex(40,5)
+# L.display()
 
-L.insertAtIndex(100,10)
+# L.insertAtIndex(100,10)
 
-L.findMid()
-L.findMid_()
+# L.findMid()
+# L.findMid_()
 
 print(L.convert_to_list())
+
+L.display()
+L.reverse_()
+L.display()
 
